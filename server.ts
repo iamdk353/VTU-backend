@@ -7,6 +7,7 @@ import apiRouter from "./Routers/api/apiRoutes";
 import cron from "node-cron";
 import axios from "axios";
 import circularModel from "./model/circualarModel/circularMode";
+import homeController from "./controllers/homeController";
 //
 const app = express();
 const cronExpressions: { [key: string]: string } = {
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use(cors());
 
 //
+app.get("/", homeController);
 app.use("/user", userRouter);
 app.use("/api", apiRouter);
 const PORT = process.env.PORT || 5000;
