@@ -1,0 +1,14 @@
+import express from "express";
+import createUser from "../../controllers/userControllers/createUser";
+import validateEmail from "../../middelware/validateEmail";
+import updateUser from "../../controllers/userControllers/updateUser";
+import notifyUserResponse from "../../controllers/userControllers/notifyUserResponse";
+import jwtCheck from "../../middelware/isAuth";
+import validateUser from "../../middelware/validateUser";
+import getUserFromToken from "../../controllers/userControllers/getUserFromToken";
+const userRouter = express.Router();
+userRouter.post("/", validateEmail, createUser);
+userRouter.get("/whoim", jwtCheck, validateUser, getUserFromToken);
+userRouter.patch("/:id", jwtCheck, validateUser, updateUser);
+userRouter.get("/notifylist", notifyUserResponse);
+export default userRouter;
