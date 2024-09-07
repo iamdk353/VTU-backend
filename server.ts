@@ -32,7 +32,7 @@ mongoose
   .connect(process.env.MONGOURL as string)
   .then(() => {
     app.listen(PORT, () => {
-      //console.log("SERVER STARTED AT " + process.env.BASEURL);
+      console.log("SERVER STARTED AT " + process.env.BASEURL);
       let timeFactor = "30";
       cron.schedule(cronExpressions[timeFactor], async () => {
         //console.log("scheduled for " + timeFactor);
