@@ -22,6 +22,7 @@ app.use(cors());
 
 //
 app.get("/", homeController);
+
 app.use("/user", userRouter);
 app.use("/api", apiRouter);
 const PORT = process.env.PORT || 5000;
