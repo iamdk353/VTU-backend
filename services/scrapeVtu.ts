@@ -2,7 +2,7 @@ import axios from "axios";
 import * as cheerio from "cheerio";
 import { getPdfLink } from "./scrapePdf";
 async function ParseMainPage() {
-  console.log("parsing the main page");
+  //console.log("parsing the main page");
 
   const url =
     process.env.MAIN_URL || "https://vtu.ac.in/en/category/administration/";

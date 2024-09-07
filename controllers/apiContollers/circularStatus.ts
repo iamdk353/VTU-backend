@@ -14,14 +14,14 @@ const circularStatus = async (req: Request, res: Response) => {
     } else {
       try {
         updateCircular(parsedCircular, storedCircular.circularID as string);
-        console.log("sending emails");
+        //console.log("sending emails");
         const list = await notifyUsersList();
         if (list) sendEmails(list as string[], parsedCircular);
         res.json({ msg: "new circular has been released", isNew: true });
 
         return;
       } catch (error) {
-        console.log("error occured while updating the circular");
+        //console.log("error occured while updating the circular");
       }
     }
   } catch (error) {

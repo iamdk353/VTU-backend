@@ -27,7 +27,7 @@ function sendThroughGmail(
   return new Promise((resolve, reject) => {
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-        console.error("Error:", error);
+        //console.error("Error:", error);
         reject("error in mailing");
       }
       resolve("sent message successfully");
@@ -40,9 +40,9 @@ const sendEmails = async (users: string[], circular: circular) => {
     const results = await Promise.all(
       users.map((user) => sendThroughGmail(user, circular))
     );
-    console.log("All emails sent successfully:", results);
+    //console.log("All emails sent successfully:", results);
   } catch (error) {
-    console.error("Error sending some emails:", error);
+    //console.error("Error sending some emails:", error);
   }
 };
 

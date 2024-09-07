@@ -5,7 +5,7 @@ const validateEmail = (req: Request, res: Response, next: NextFunction) => {
   if (emailRegex.test(email)) {
     next();
   } else {
-    console.log("Invalid Gmail address");
+    //console.log("Invalid Gmail address");
     res.json({ msg: "invalid email format" });
     return;
   }

@@ -22,7 +22,7 @@ const validateUser = async (
       const userId = await userModel
         .findOne({ authId: decodeUser.sub })
         .select("-_v");
-      console.log("user ", userId);
+      //console.log("user ", userId);
       if (userId) {
         req.userId = userId?._id.toString() as string;
         req.authId = decodeUser.sub as string;
