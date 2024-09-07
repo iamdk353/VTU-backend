@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import "dotenv/config";
 import cors from "cors";
 import userRouter from "./Routers/user/userRouter";
@@ -33,16 +33,18 @@ mongoose
   .then(() => {
     app.listen(PORT, () => {
       console.log("SERVER STARTED AT " + process.env.BASEURL);
-      // let timeFactor = "30";
-      // cron.schedule(cronExpressions[timeFactor], async () => {
-      //   try {
-      //     const response = await axios.get(process.env.BASEURL + "/api/status");
-      //     console.log(timeFactor);
-      //     console.log("Cron job: API call successful:", response.data);
-      //   } catch (error) {
-      //     console.error("Cron job: API call failed:", error);
-      //   }
-      // });
+      let timeFactor = "30";
+      cron.schedule(cronExpressions[timeFactor], async () => {
+        console.log("scheduled for " + timeFactor);
+        try {
+          const response = await axios.get(process.env.BASEURL + "/api/status");
+
+          console.log(timeFactor, process.env.BASEURL + "/api/status");
+          console.log("Cron job: API call successful:", response.data);
+        } catch (error) {
+          console.error("Cron job: API call failed:", error);
+        }
+      });
     });
   })
   .catch((err) => {

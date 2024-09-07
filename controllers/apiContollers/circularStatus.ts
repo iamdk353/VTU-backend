@@ -25,7 +25,7 @@ const circularStatus = async (req: Request, res: Response) => {
       }
     }
   } catch (error) {
-    res.json({ msg: "error in fetcing status" });
+    res.json({ msg: "error in fetcing status" + error });
   }
 };
 export default circularStatus;
