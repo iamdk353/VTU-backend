@@ -13,6 +13,7 @@ const app = express();
 const cronExpressions: { [key: string]: string } = {
   "31": "*/31 * * * * *", // Every 31 seconds
   "1": "* * * * *", // Every 1 minute
+  "5": "*/5 * * * *", // every 5 mins
   "15": "*/15 * * * *", // Every 15 minutes
   "30": "*/30 * * * *", // Every 30 minutes
 };
@@ -33,7 +34,7 @@ mongoose
   .then(() => {
     app.listen(PORT, () => {
       console.log("SERVER STARTED AT " + process.env.BASEURL);
-      let timeFactor = "30";
+      let timeFactor = "5";
       cron.schedule(cronExpressions[timeFactor], async () => {
         //console.log("scheduled for " + timeFactor);
         try {
