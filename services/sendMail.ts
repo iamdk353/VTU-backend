@@ -65,7 +65,7 @@ function sendThroughGmail(
       }
       button {
         padding: 1rem;
-        width: 20%;
+        width:10rem;
         border-radius: 10px;
         border: 0px;
         background-color: black;
