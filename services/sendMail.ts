@@ -19,7 +19,7 @@ function sendThroughGmail(
     to: user,
     subject: "new VTU circular",
     html: `
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -62,8 +62,6 @@ function sendThroughGmail(
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         max-width: 600px;
         margin: 0 auto;
-        display: flex;
-        flex-direction: column;
       }
       button {
         padding: 1rem;
@@ -77,13 +75,8 @@ function sendThroughGmail(
         box-shadow: 0 2px 4px #333;
       }
 
-      .button:hover {
-        background-color: #0056b3;
+      button:hover {
         cursor: pointer;
-      }
-      .button:active {
-        background-color: #00408d;
-        transform: scale(0.98);
       }
       a {
         text-decoration: none;
@@ -92,16 +85,14 @@ function sendThroughGmail(
     </style>
   </head>
   <body>
-    <div class="notification">
-      <h1>VTU <span>NOTIFY</span></h1>
-      <h2>
-       ${title}
-      </h2>
-      <p><strong>Post ID:</strong> ${circularID}</p>
-      <p><strong>Date:</strong> ${date}</p>
-      <a href=${pdfLink}>
-        <button>VIEW PDF</button>
-      </a>
+      <div class="notification">
+        <h1>VTU <span>NOTIFY</span></h1>
+        <h2>${title}</h2>
+        <p><strong>Post ID:</strong> ${circularID}</p>
+        <p><strong>Date:</strong> ${date}</p>
+        <a href="${pdfLink}">
+          <button>VIEW PDF</button>
+        </a>
     </div>
   </body>
 </html>
