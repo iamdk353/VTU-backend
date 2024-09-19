@@ -19,9 +19,92 @@ function sendThroughGmail(
     to: user,
     subject: "new VTU circular",
     html: `
-    <h1>New Circular </h1>
-    <p>VTU has released a new <Strong>${circularID}</strong> related to <strong>${title}</strong> on <strong>${date}</strong></p>
-    <a href=${pdfLink}>view pdf</a>
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VTU Notification</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 50px;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+      h1 {
+        color: #eab308;
+        font-size: 2rem;
+        text-align: center;
+      }
+      h1 span {
+        color: black;
+        font-size: 2rem;
+        text-align: center;
+      }
+      h2 {
+        color: black;
+        font-size: 1.5rem;
+        width: 100%;
+      }
+      p {
+        font-size: 1.2rem;
+        font-weight: 400;
+        line-height: 1.6;
+      }
+      strong {
+        color: #eab308;
+      }
+      .notification {
+        background-color: #fff;
+        padding: 50px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+      }
+      button {
+        padding: 1rem;
+        width: 20%;
+        border-radius: 10px;
+        border: 0px;
+        background-color: black;
+        color: white;
+        font-size: 1rem;
+        font: 600;
+        box-shadow: 0 2px 4px #333;
+      }
+
+      .button:hover {
+        background-color: #0056b3;
+        cursor: pointer;
+      }
+      .button:active {
+        background-color: #00408d;
+        transform: scale(0.98);
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="notification">
+      <h1>VTU <span>NOTIFY</span></h1>
+      <h2>
+       ${title}
+      </h2>
+      <p><strong>Post ID:</strong> ${circularID}</p>
+      <p><strong>Date:</strong> ${date}</p>
+      <a href=${pdfLink}>
+        <button>VIEW PDF</button>
+      </a>
+    </div>
+  </body>
+</html>
     `,
   };
   return new Promise((resolve, reject) => {
